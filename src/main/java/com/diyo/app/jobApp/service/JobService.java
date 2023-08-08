@@ -11,39 +11,43 @@ import java.util.Optional;
 
 @Service
 public class JobService {
-    @Autowired
-    JobRepository jobRepository;
+    /*@Autowired
+    JobRepository jobRepository;*/
 
 
     //READ ALL
     public List<JobListing> getAllJobs(){
-        return jobRepository.findAll();
+        return null;
+        //return jobRepository.findAll();
     }
 
     //READ SPECIFIC BY ID
     public JobListing getJobById(Long jobId){
-        Optional<JobListing> listing = jobRepository.findById(jobId);
+        /*Optional<JobListing> listing = jobRepository.findById(jobId);
         if(!listing.isPresent()){
             throw new RuntimeException("Listing with jobId "+jobId+ " is not present!");
         }
-        return listing.get();
+        return listing.get();*/
+        return null;
     }
 
     //SAVE ONE JOB LISTING
     public String saveOneJob(JobListing jobListing){
-        jobRepository.save(jobListing);
-        return "Successfully saved a job listing";
+        /*jobRepository.save(jobListing);
+        return "Successfully saved a job listing";*/
+        return "";
     }
 
     //SAVE ALL JOB LISTING
     public String saveAllJob(List<JobListing> jobListingList){
-        jobRepository.saveAll(jobListingList);
-        return "Successfully saved all job listings";
+        /*jobRepository.saveAll(jobListingList);
+        return "Successfully saved all job listings";*/
+        return "";
     }
 
     //UPDATE BY ID
     public String updateJobById(Long jobId, JobListing updatedJob){
-        Optional<JobListing> optionalJob = jobRepository.findById(jobId);
+        /*Optional<JobListing> optionalJob = jobRepository.findById(jobId);
         if(optionalJob.isPresent()){
             JobListing existingJob = optionalJob.get();
             existingJob.setJobDescription(updatedJob.getJobDescription());
@@ -54,27 +58,30 @@ public class JobService {
             return "Job Id: "+jobId+" updated!";
         }else{
             throw new RuntimeException("JobId "+jobId+ " is not found!");
-        }
+        }*/
+        return "";
     }
 
     //DELETE BY ID
     public String deleteById(Long jobId){
-        Optional<JobListing> optionalJobListing = jobRepository.findById(jobId);
+        /*Optional<JobListing> optionalJobListing = jobRepository.findById(jobId);
         if(optionalJobListing.isPresent()){
             jobRepository.deleteById(jobId);
             return jobId+" successfully deleted!";
         }
         else{
             throw new RuntimeException("Job Id "+jobId+" couldn't be found!");
-        }
+        }*/
+        return "";
     }
 
     //DELETE ALL
     public String deleteAll(){
-        List<JobListing> job = jobRepository.findAll();
+        /*List<JobListing> job = jobRepository.findAll();
         int totalJob = job.size();
         jobRepository.deleteAll();
-        return totalJob+ " job listings deleted";
+        return totalJob+ " job listings deleted";*/
+        return "";
     }
 
 }
